@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Xem Phim</title>
+    <style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5; /* Nền xám nhạt giống ảnh */
+            color: #333;
+        }
+
+        .top-fixed {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .header img {
+            height: 100px; /* Chiều cao giả định cho Logo */
+        }
+
+        .head-link {
+            background-color: white;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .head-link a {
+            color: #333;
+            text-decoration: none; /* Bỏ gạch chân */
+            padding: 0 15px;
+            border-right: 1px solid #ccc;
+        }
+
+        .head-link a:last-child {
+            border-right: none;
+        }
+
+        .head-link a:hover {
+            color: #ff0000; /* Đổi màu khi hover */
+            font-weight: bold; /* Bôi đậm chữ */
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            gap: 20px; /* Khoảng cách giữa 2 cột */
+        }
+
+        .left-content {
+            width: 35%; /* Cột trái chiếm 35% */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .video-item {
+            background: white;
+            padding: 10px;
+            cursor: pointer; /* Biến con trỏ thành bàn tay khi hover */
+            transition: 0.3s;
+        }
+
+        .video-item:hover {
+            background: #e9e9e9;
+        }
+
+        .video-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .video-item h4 {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .video-item p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .right-content {
+            flex: 1; /* Cột phải chiếm toàn bộ phần diện tích còn lại */
+            background: white;
+            padding: 15px;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 450px;
+            background-color: #000;
+        }
+
+        .right-content h2 {
+            margin: 15px 0 5px 0;
+            font-size: 18px;
+        }
+
+        .right-content .views {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .right-content .description {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                /* Ép cột trái và phải xếp chồng lên nhau trên đt */
+                flex-direction: column-reverse;
+            }
+            .left-content {
+                width: 100%; /* Chiếm full màn hình */
+            }
+            .video-player {
+                height: 300px; /* Thu nhỏ video trên điện thoại */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-fixed">
+    <div class="header">
+        <img src="image/logo.png" alt="Logo">
+    </div>
+
+    <div class="head-link">
+        <a href="#">Phim hoạt hình</a>
+        <a href="#">Phim hoạt hình yêu thích</a>
+        <a href="#">Nhân vật hoạt hình</a>
+        <a href="#">Góp ý</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="left-content">
+        <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/placeholder1', 'Welcom đến với khách sạn Nobi', '5,147,528 lượt xem', 'Bộ phim kể về câu chuyện Doraemon...')">
+            <img src="image/Anh-doraemon1.jpg" alt="Thumb 1">
+            <h4>Welcom đến với khách sạn Nobi</h4>
+            <p>Channel Fun</p>
+        </div>
+
+        <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/placeholder2', 'Suneo khổng lồ', '3,000,000 lượt xem', 'Một ngày nọ Suneo bị biến thành người khổng lồ...')">
+            <img src="image/Anh-doraemon2.jpg" alt="Thumb 2">
+            <h4>Suneo khổng lồ</h4>
+            <p>Doreamon Vietsub</p>
+        </div>
+
+        <div class="video-item" onclick="changeVideo('https://www.youtube.com/embed/placeholder3', 'Còi điều khiển vật', '4,200,100 lượt xem', 'Bảo bối thần kỳ giúp điều khiển mọi vật bằng tiếng còi...')">
+            <img src="image/Anh-doraemon3.jpg" alt="Thumb 3">
+            <h4>Còi điều khiển vật</h4>
+            <p>Doreamon Vietsub</p>
+        </div>
+    </div>
+
+    <div class="right-content">
+        <iframe id="main-video" class="video-player" src="https://www.youtube.com/embed/placeholder1" frameborder="0" allowfullscreen></iframe>
+
+        <h2 id="main-title">Welcom đến với khách sạn Nobi</h2>
+        <p id="main-views" class="views">5,147,528 lượt xem</p>
+
+        <div id="main-desc" class="description">
+            <p>Mặc định hiển thị thông tin của video đầu tiên. Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa... Mời các bạn cùng đón xem và cảm nhận.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    © 2017 - Thiết kế web bởi trang hoathinhvn.net
+</div>
+
+
+</body>
+</html>
