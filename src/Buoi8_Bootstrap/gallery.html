@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .gallery-card {
+            border: 1px solid #ddd;
+            border-radius: 0;
+            height: 100%;
+        }
+        .gallery-card img {
+            border-radius: 0;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery-card .card-body {
+            padding: 15px;
+        }
+        .gallery-card .card-text {
+            font-size: 14px;
+        }
+        .custom-row{
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+        .custom-col{
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        @media (min-width: 500px) {
+            .custom-col{
+                width: 50%;
+            }
+        }
+        @media (min-width: 700px) {
+            .custom-col {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4 mb-5">
+    <h2 class="mb-3">Responsive Image Gallery</h2>
+    <p class="fw-bold">Resize the browser window to see the effect.</p>
+
+    <div class="custom-row mt-4">
+        <div class="custom-col">
+            <div class="card gallery-card">
+                <img src="Image_gallery/Anh1.jpg" class="card-img-top" alt="Mountain">
+                <div class="card-body text-center">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col">
+            <div class="card gallery-card">
+                <img src="Image_gallery/Anh2.jpg" class="card-img-top" alt="Forest">
+                <div class="card-body text-center">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col">
+            <div class="card gallery-card">
+                <img src="Image_gallery/Anh3.jpg" class="card-img-top" alt="Aurora">
+                <div class="card-body text-center">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col">
+            <div class="card gallery-card">
+                <img src="Image_gallery/Anh4.jpg" class="card-img-top" alt="Lake">
+                <div class="card-body text-center">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2">
+        <p style="font-size: 14px;">
+            This example use media queries to re-arrange the images on different screen sizes: for screens larger than 768px wide, it will show four images side by side, for screens smaller than 768px, it will show two images side by side. For screens smaller than 576px, the images will stack vertically (100%).
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
