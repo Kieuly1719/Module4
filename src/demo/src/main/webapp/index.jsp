@@ -4,10 +4,10 @@
 
 <%
     List<Customer> customerList = new ArrayList<>();
-    customerList.add(new Customer("Mai Văn Hoàn", "1983-08-20", "Hà Nội", "Anh-doraemon1.jpg"));
-    customerList.add(new Customer("Nguyễn Văn Nam", "1983-08-21", "Bắc Giang", "Anh-doraemon2.jpg"));
-    customerList.add(new Customer("Nguyễn Thái Hòa", "1983-08-22", "Nam Định", "Anh-doraemon3.jpg"));
-    customerList.add(new Customer("Trần Đăng Khoa", "1983-08-17", "Hà Tây", "Anh-doraemon4.jpg"));
+    customerList.add(new Customer("Mai Văn Hoàn", "1983-08-20", "Hà Nội", "image/Anh-doraemon1.jpg"));
+    customerList.add(new Customer("Nguyễn Văn Nam", "1983-08-21", "Bắc Giang", "image/Anh-doraemon2.jpg"));
+    customerList.add(new Customer("Nguyễn Thái Hòa", "1983-08-22", "Nam Định", "image/Anh-doraemon3.jpg"));
+    customerList.add(new Customer("Trần Đăng Khoa", "1983-08-17", "Hà Tây", "image/Anh-doraemon4.jpg"));
     request.setAttribute("customers", customerList);
 %>
 
@@ -50,22 +50,22 @@
     <h2>Danh sách khách hàng</h2>
     <table>
         <thead>
-            <tr>
-                <th>Tên</th>
-                <th>Ngày sinh</th>
-                <th>Địa chỉ</th>
-                <th>Ảnh</th>
-            </tr>
+        <tr>
+            <th>Tên</th>
+            <th>Ngày sinh</th>
+            <th>Địa chỉ</th>
+            <th>Ảnh</th>
+        </tr>
         </thead>
         <tbody>
-            <c:forEach var="customer" items="${customers}">
-                <tr>
-                    <td>${customer.name}</td>
-                    <td>${customer.birthDate}</td>
-                    <td>${customer.address}</td>
-                    <td><img src="${customer.imagePath}" alt="${customer.name}"></td>
-                </tr>
-            </c:forEach>
+        <c:forEach var="customer" items="${customers}">
+            <tr>
+                <td>${customer.name}</td>
+                <td>${customer.birthDate}</td>
+                <td>${customer.address}</td>
+                <td><img src="${customer.imagePath}" alt="${customer.name}"></td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>
