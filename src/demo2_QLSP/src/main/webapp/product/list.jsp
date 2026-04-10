@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="javax.tags.core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Danh sách sản phẩm</title>
@@ -8,7 +8,7 @@
 <body class="container mt-4">
 <h2>Quản lý Sản phẩm</h2>
 <div class="d-flex justify-content-between mb-3">
-    <a href="/products?action=create" class="btn btn-success">Thêm sản phẩm mới</a>
+    <a href="${pageContext.request.contextPath}/products?action=create" class="btn btn-success">Thêm sản phẩm mới</a>
 
     <form action="/products" method="get" class="d-flex">
         <input type="hidden" name="action" value="search">
@@ -31,12 +31,12 @@
     <c:forEach var="product" items="${products}">
         <tr>
             <td>${product.id}</td>
-            <td><a href="/products?action=view&id=${product.id}">${product.name}</a></td>
+            <td><a href="${pageContext.request.contextPath}/products?action=view&id=${product.id}">${product.name}</a></td>
             <td>${product.price}</td>
             <td>${product.producer}</td>
             <td>
-                <a href="/products?action=edit&id=${product.id}" class="btn btn-sm btn-warning">Sửa</a>
-                <a href="/products?action=delete&id=${product.id}" class="btn btn-sm btn-danger">Xoá</a>
+                <a href="${pageContext.request.contextPath}/products?action=edit&id=${product.id}" class="btn btn-sm btn-warning">Sửa</a>
+                <a href="${pageContext.request.contextPath}/products?action=delete&id=${product.id}" class="btn btn-sm btn-danger">Xoá</a>
             </td>
         </tr>
     </c:forEach>

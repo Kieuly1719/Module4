@@ -75,12 +75,12 @@ public class ProductServlet extends HttpServlet {
     private void listProducts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> products = productService.getAll();
         request.setAttribute("products", products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("webapp/product/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("webapp/product/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/create.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -92,7 +92,7 @@ public class ProductServlet extends HttpServlet {
             dispatcher = request.getRequestDispatcher("error-404.jsp"); // Bạn có thể tự tạo trang này sau
         } else {
             request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("webapp/product/edit.jsp");
+            dispatcher = request.getRequestDispatcher("product/edit.jsp");
         }
         dispatcher.forward(request, response);
     }
@@ -105,7 +105,7 @@ public class ProductServlet extends HttpServlet {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("webapp/product/delete.jsp");
+            dispatcher = request.getRequestDispatcher("product/delete.jsp");
         }
         dispatcher.forward(request, response);
     }
@@ -118,7 +118,7 @@ public class ProductServlet extends HttpServlet {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("webapp/product/view.jsp");
+            dispatcher = request.getRequestDispatcher("product/view.jsp");
         }
         dispatcher.forward(request, response);
     }
@@ -131,7 +131,7 @@ public class ProductServlet extends HttpServlet {
             products.add(product);
         }
         request.setAttribute("products", products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("webapp/product/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         dispatcher.forward(request, response);
     }
 
